@@ -21,8 +21,6 @@ amazon.com
 amazon.co.uk
 amazonvideo.com
 theplatform.com
-nbc.com
-nbcuni.com
 ip2location.com
 bam.nr-data.net
 bamgrid.com
