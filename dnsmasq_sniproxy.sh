@@ -223,7 +223,7 @@ install_dependencies(){
 }
 
 install_dnsmasq(){
-    netstat -a -n -p | grep LISTEN | grep -P "\d+\.\d+\.\d+\.\d+:53\s+" > /dev/null && echo -e "[${red}Error${plain}] required port 53 already in use\n" && exit 1
+    #netstat -a -n -p | grep LISTEN | grep -P "\d+\.\d+\.\d+\.\d+:53\s+" > /dev/null && echo -e "[${red}Error${plain}] required port 53 already in use\n" && exit 1
     echo "Installing Dnsmasq..."
     if check_sys packageManager yum; then
         error_detect_depends "yum -y install dnsmasq"
@@ -246,6 +246,9 @@ install_dnsmasq(){
             yes|cp -f /tmp/dnsmasq-2.88/src/dnsmasq /usr/sbin/dnsmasq && chmod 755 /usr/sbin/dnsmasq
         fi
     elif check_sys packageManager apt; then
+        systemctl disable --now systemd-resolved
+        rm -rf /etc/resolv.conf
+        echo "nameserver 8.8.8.8" > /etc/resolv.conf
         error_detect_depends "apt-get -y install dnsmasq"
     fi
     [ ! -f /usr/sbin/dnsmasq ] && echo -e "[${red}Error${plain}] There is a problem installing dnsmasq, please check." && exit 1
