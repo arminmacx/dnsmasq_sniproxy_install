@@ -31,6 +31,7 @@ ifconfig.co
 telemetry-in.battle.net
 level3.blizzard.com
 alert-eu.battle.net
+api.blizzard.com
 eu.patch.battle.net
 eu.api.blizzard.com
 blzprofile.akamaized.net
@@ -44,6 +45,7 @@ bnetproduct-a.akamaihd.net
 bnetcmsus-a.akamaihd.net
 blzddistkr1-a.akamaihd.net
 blzddist1-a.akamaihd.net
+blz-contentstack-images.akamaized.net
 blizzardgearstore.com
 blz-contentstack.com
 blizzard.com
